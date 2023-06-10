@@ -16,8 +16,13 @@ class ClientSeeder extends Seeder
     public function run()
     {
         Client::create([
-            'logo_url' => 'Desarrollo de Apps',
-            'name' => 'Realizo aplicaciones nativas tanto web, como móviles.',
+            'logo_url' => 'http://127.0.0.1:8000/images/slider/brand2.png',
+            'name' => 'Diana ejemplo',
+        ]);
+
+        Client::create([
+            'logo_url' => 'http://127.0.0.1:8000/images/slider/brand3.png',
+            'name' => 'Penny ejemplo',
         ]);
     }
 }

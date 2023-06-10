@@ -103,35 +103,35 @@
                 <div
                     class="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
                     <!-- profile image -->
-                    <img src="{{asset('images/LOGO.jpg')}}"
+                    <img src="{{ asset('images/logo.jpg') }}"
                         class="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
                         alt="about" />
                     <div class="pt-[100px] pb-8">
-                        <h2 class="mt-6 mb-1 text-[26px] font-semibold dark:text-white"> Ismael Catalá </h2>
+                        <h2 class="mt-6 mb-1 text-[26px] font-semibold dark:text-white"> {{ $user_public->name }} </h2>
                         <h3
                             class="mb-4 text-[#7B7B7B] inline-block dark:bg-[#1D1D1D] px-5 py-1.5 rounded-lg dark:text-[#A6A6A6]">
-                            Software developer </h3>
+                            {{ $user_public->description }} </h3>
                         <div class="flex justify-center space-x-3">
                             <!-- facebook icon and link -->
-                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ $user_public->facebool_url }}" target="_blank" rel="noopener noreferrer">
                                 <span class="socialbtn text-[#1773EA]">
                                     <i class="fa-brands fa-facebook-f"></i>
                                 </span>
                             </a>
                             <!-- twitter icon and link -->
-                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ $user_public->twitter_url }}" target="_blank" rel="noopener noreferrer">
                                 <span class="socialbtn text-[#1C9CEA]">
                                     <i class="fa-brands fa-twitter"></i>
                                 </span>
                             </a>
                             <!-- dribbble icon and link -->
-                            <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ $user_public->dribbble_url }}" target="_blank" rel="noopener noreferrer">
                                 <span class="socialbtn text-[#e14a84]">
                                     <i class="fa-brands fa-dribbble"></i>
                                 </span>
                             </a>
                             <!-- linkedin icon and link -->
-                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ $user_public->likedin_url }}" target="_blank" rel="noopener noreferrer">
                                 <span class="socialbtn text-[#0072b1]">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </span>
@@ -145,7 +145,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Teléfono </p>
-                                    <p class="dark:text-white">+123 456 7890</p>
+                                    <p class="dark:text-white">{{ $user_public->phone }}</p>
                                 </div>
                             </div>
                             <div class="flex border-b border-[#E3E3E3] dark:border-[#3D3A3A] py-2.5">
@@ -154,7 +154,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Email </p>
-                                    <p class="dark:text-white">example@mail.com</p>
+                                    <p class="dark:text-white">{{ $user_public->email }}</p>
                                 </div>
                             </div>
                             <div class="flex border-b border-[#E3E3E3] dark:border-[#3D3A3A] py-2.5">
@@ -163,7 +163,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Dirección </p>
-                                    <p class="dark:text-white">Madrid, España</p>
+                                    <p class="dark:text-white">{{ $user_public->address }}</p>
                                 </div>
                             </div>
                             <div class="flex py-2.5">
@@ -172,14 +172,15 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Año de nacimiento </p>
-                                    <p class="dark:text-white">24 Sept, 1987</p>
+                                    <p class="dark:text-white">{{ Carbon\Carbon::parse($user_public->birthdate)->format('d-m-Y') }}</p>
                                 </div>
                             </div>
                         </div>
                         <!-- personal infomation end-->
                         <!-- dowanload button -->
-                        <button class="dowanload-btn">
+                        <a href="{{ $user_public->cv_url }}"><button class="dowanload-btn">
                             <img class="mr-3" src="{{asset('images/icons/dowanload.png')}}" alt="icon" /> Descargar CV </button>
+                        </a>
                     </div>
                 </div>
             </div>

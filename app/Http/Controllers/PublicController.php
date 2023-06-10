@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -9,7 +11,9 @@ class PublicController extends Controller
     //
     public function index(){
 
-        return view('public.home');
+        $services = Service::all();
+        $clients = Client::all();
+        return view('public.home', ['services' => $services, 'clients' => $clients]);
 
     }
     public function resume(){
